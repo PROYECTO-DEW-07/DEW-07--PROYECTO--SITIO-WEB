@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClickCell | Ventas al alcance de tu mano</title>
+    <link rel="stylesheet" href="estilos/paginaprincipal.css" />
+    <link rel="stylesheet" href="estilos/footer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- ============= LOGO DE LA EMPRESA ============= -->
+        <div class="logo">CLICK<span>CELL</span></div>
+
+        <!-- ============= Enlaces de navegación ============= -->
+        <div class="menu-links" id="menuLinks">
+          <a href="#inicio">Inicio</a>
+          <a href="#equipos">Equipos</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <button class="menu-hamburger" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- ============= Botón ============= -->
+        <a href="login.html" class="btn-demo"> Iniciar Sesión </a>
+      </nav>
+    </header>
+
+    <!-- ========== INICIO ========== -->
+    <section class="hero" id="inicio">
+      <div class="phones-slider">
+        <!-- BOTÓN IZQUIERDA -->
+        <button class="slider-btn slider-left" onclick="moveSlide(-1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- CONTENEDOR DEL SLIDER -->
+        <div class="hero-equipos" id="slider">
+          <!-- 🔁 CLON DEL ÚLTIMO (SLIDE 3) -->
+          <div class="slide">
+            <h1>Samsung Galaxy S25 Ultra</h1>
+
+            <span class="star star-left">✦</span>
+            <span class="star star-right">✦</span>
+
+            <div class="hero-content">
+              <div class="promo-samsung">¡Oferta limitada!</div>
+
+              <img src="img/s25ultra.png" alt="samsung" class="phones" />
+
+              <div class="precio-samsung">
+                <span>Consíguelo desde:</span>
+                <strong>S/ 4.200</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SLIDE 1 ===== -->
+          <div class="slide">
+            <h1>Tu próximo celular está aquí</h1>
+
+            <span class="star star-left">✦</span>
+            <span class="star star-right">✦</span>
+
+            <div class="hero-content">
+              <div class="promo">¡Estrena tu celular hoy mismo!</div>
+
+              <img
+                src="img/logoprincipal.jpeg"
+                alt="celulares"
+                class="phones"
+              />
+
+              <div class="precio">
+                <span>Smartphones desde:</span>
+                <strong>S/ 2.999</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SLIDE 2 ===== -->
+          <div class="slide">
+            <h1>iPhone 17 Pro</h1>
+
+            <span class="star star-left">✦</span>
+            <span class="star star-right">✦</span>
+
+            <div class="hero-content">
+              <div class="promo-iphone">¡Nuevo ingreso!</div>
+
+              <img src="img/iphone17pro.png" alt="iphone" class="phones" />
+
+              <div class="precio-iphone">
+                <span>Disponible desde:</span>
+                <strong>S/ 4.500</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SLIDE 3 ===== -->
+          <div class="slide">
+            <h1>Samsung Galaxy S25 Ultra</h1>
+
+            <span class="star star-left">✦</span>
+            <span class="star star-right">✦</span>
+
+            <div class="hero-content">
+              <div class="promo-samsung">¡Oferta limitada!</div>
+
+              <img src="img/s25ultra.png" alt="samsung" class="phones" />
+
+              <div class="precio-samsung">
+                <span>Consíguelo desde:</span>
+                <strong>S/ 4.200</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔁 CLON DEL PRIMER SLIDE -->
+          <div class="slide">
+            <h1>Tu próximo celular está aquí</h1>
+
+            <span class="star star-left">✦</span>
+            <span class="star star-right">✦</span>
+
+            <div class="hero-content">
+              <div class="promo">¡Estrena tu celular hoy mismo!</div>
+
+              <img
+                src="img/logoprincipal.jpeg"
+                alt="celulares"
+                class="phones"
+              />
+
+              <div class="precio">
+                <span>Smartphones desde:</span>
+                <strong>S/ 2.999</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTÓN DERECHA -->
+        <button class="slider-btn slider-right" onclick="moveSlide(1)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+      window.onload = () => {
+        const slider = document.getElementById("slider");
+        const slides = document.querySelectorAll(".slide");
+
+        let index = 1; // empieza en el primer real (porque 0 es clon)
+        const total = slides.length;
+
+        function getSize() {
+          return slides[0].clientWidth;
+        }
+
+        function update(animate) {
+          if (animate === false) {
+            slider.style.transition = "none";
+          } else {
+            slider.style.transition = "transform 0.8s ease-in-out";
+          }
+          slider.style.transform = `translateX(-${index * getSize()}px)`;
+        }
+
+        // Recalcular al rotar o redimensionar
+        window.addEventListener("resize", () => {
+          update(false);
+        });
+
+        window.moveSlide = function (direction) {
+          index += direction;
+          update(true);
+
+          // 🔁 si llega al último clon
+          if (index === total - 1) {
+            setTimeout(() => {
+              slider.style.transition = "none";
+              index = 1;
+              slider.style.transform = `translateX(-${getSize() * index}px)`;
+            }, 800);
+          }
+
+          // 🔁 si llega al primer clon
+          if (index === 0) {
+            setTimeout(() => {
+              slider.style.transition = "none";
+              index = total - 2;
+              slider.style.transform = `translateX(-${getSize() * index}px)`;
+            }, 800);
+          }
+        };
+
+        setInterval(() => {
+          moveSlide(1);
+        }, 4000);
+
+        // Posición inicial
+        update(false);
+      };
+    </script>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menuLinks");
+        menu.classList.toggle("active");
+      }
+    </script>
+
+    <!-- ========== ESTADÍSTICAS ========== -->
+    <div class="estadisticas-bg">
+      <section class="estadisticas">
+        <div class="stat-card">
+          <div class="stat-numero">+100</div>
+          <div class="stat-nombre">Equipos vendidos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">94%</div>
+          <div class="stat-nombre">Satisfacción de clientes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">+4</div>
+          <div class="stat-nombre">Años de experiencia</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">$</div>
+          <div class="stat-nombre">Precios competitivos</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== MARCAS ========== -->
+    <section class="marcas" id="equipos">
+      <h2 class="section-title">¡ELIGE TU MARCA FAVORITA!</h2>
+
+      <p class="section-subtitle">
+        Encuentra los mejores smartphones al mejor precio
+      </p>
+
+      <div class="marcas-grid">
+        <!-- APPLE -->
+        <div class="marca-card">
+          <div class="marca-imagen">
+            <img src="img/iphone17pro.png" alt="Apple" />
+          </div>
+
+          <div class="marca-tag">🔥 Más vendida</div>
+
+          <h3>Apple</h3>
+
+          <div class="marca-precio">Desde S/ 2,999</div>
+
+          <a href="catalogo.html?marca=apple" class="btn-modelos">
+            Ver catálogo
+          </a>
+        </div>
+
+        <!-- SAMSUNG -->
+        <div class="marca-card">
+          <div class="marca-imagen">
+            <img src="img/s25ultra.png" alt="Samsung" />
+          </div>
+
+          <div class="marca-tag">⭐ Recomendado</div>
+
+          <h3>Samsung</h3>
+
+          <div class="marca-precio">Desde S/ 1,499</div>
+
+          <a href="catalogo.html?marca=samsung" class="btn-modelos">
+            Ver catálogo
+          </a>
+        </div>
+
+        <!-- XIAOMI -->
+        <div class="marca-card">
+          <div class="marca-imagen">
+            <img src="img/xiaomi.jpeg" alt="Xiaomi" />
+          </div>
+
+          <div class="marca-tag">💰 Mejor precio</div>
+
+          <h3>Xiaomi</h3>
+
+          <div class="marca-precio">Desde S/ 899</div>
+
+          <a href="catalogo.html?marca=xiaomi" class="btn-modelos">
+            Ver catálogo
+          </a>
+        </div>
+
+        <!-- POCO -->
+        <div class="marca-card">
+          <div class="marca-imagen">
+            <img src="img/pocox7pro.jpg" alt="Poco" />
+          </div>
+
+          <div class="marca-tag">⚡ Máxima potencia</div>
+
+          <h3>Poco</h3>
+
+          <div class="marca-precio">Desde S/ 799</div>
+
+          <a href="catalogo.html?marca=poco" class="btn-modelos">
+            Ver catálogo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACTA UN ASESOR ========== -->
+    <section class="contact-asesor" id="contacto">
+      <div class="contact-asesor-content">
+        <div class="contact-icon">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <h2>¿Listo para encontrar tu próximo smartphone?</h2>
+        <p>
+          Únete a más de 100 clientes satisfechos que ya confiaron en ClickCell.
+          Nuestro equipo está listo para ayudarte a encontrar el equipo ideal
+          para ti.
+        </p>
+
+        <!-- REDES -->
+        <div class="social-buttons">
+          <!-- WHATSAPP -->
+          <div class="whatsapp-menu">
+            <button class="social-btn whatsapp-btn">
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </button>
+
+            <div class="whatsapp-options">
+              <a href="#"> 📱 Ventas </a>
+
+              <a href="#"> 🛠️ Soporte Técnico </a>
+
+              <a href="#"> 📦 Estado de Pedido </a>
+            </div>
+          </div>
+
+          <!-- FACEBOOK -->
+          <a
+            href="https://facebook.com"
+            class="social-btn facebook"
+            target="_blank"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+            Facebook
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a
+            href="https://instagram.com"
+            class="social-btn instagram"
+            target="_blank"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+          </a>
+        </div>
+
+        <p class="contact-note">
+          Atención personalizada de lunes a sábado de 9:00 AM a 8:00 PM.
+        </p>
+      </div>
+
+      <footer>
+        <div class="footer-logo">CLICK<span>CELL</span></div>
+
+        <div class="footer-copy">
+          © 2026 ClickCell. Todos los derechos reservados.
+        </div>
+
+        <nav class="footer-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Contacto</a>
+        </nav>
+      </footer>
+    </section>
+  </body>
+</html>

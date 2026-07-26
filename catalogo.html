@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClickCell | Catálogo</title>
+    <link rel="stylesheet" href="estilos/catalogo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <!-- ============= LOGO DE LA EMPRESA ============= -->
+        <a href="paginaprincipal.html" class="logo"> CLICK<span>CELL</span> </a>
+        <!-- ============= Enlaces de navegación ============= -->
+        <div class="menu-links" id="menuLinks">
+          <a href="paginaprincipal.html">Inicio</a>
+          <a href="paginaprincipal.html">Equipos</a>
+          <a href="catalogo.html" class="active">Catálogo</a>
+          <a href="paginaprincipal.html">Contacto</a>
+        </div>
+
+        <!-- Botón Hamburguesa (NUEVO) -->
+        <button class="menu-hamburger" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- ============= Botón ============= -->
+        <a href="login.html" class="btn-demo"> Iniciar Sesión </a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="catalogo-hero">
+      <h1>Catálogo de Equipos</h1>
+      <p>Encuentra el smartphone ideal para ti</p>
+    </section>
+
+    <!-- FILTRO -->
+    <div class="filtro-marcas">
+      <button class="filtro-btn active" onclick="filtrarMarca('todos', this)">
+        Todos
+      </button>
+      <button class="filtro-btn" onclick="filtrarMarca('apple', this)">
+        <img src="imgscatalogo/apple-logo1.png" alt="Apple" class="filtro-logo-img" />
+        Apple
+      </button>
+      <button class="filtro-btn" onclick="filtrarMarca('samsung', this)">
+        <img
+          src="imgscatalogo/samsung1-logo.png"
+          alt="Samsung"
+          class="filtro-logo-img"
+        />
+        Samsung
+      </button>
+      <button class="filtro-btn" onclick="filtrarMarca('xiaomi', this)">
+        <img src="imgscatalogo/xiaomi-logo.png" alt="Xiaomi" class="filtro-logo-img" />
+        Xiaomi
+      </button>
+      <button class="filtro-btn" onclick="filtrarMarca('poco', this)">
+        <img src="imgscatalogo/poco-logo.png" alt="Poco" class="filtro-logo-img" /> Poco
+      </button>
+      <button class="filtro-btn" onclick="filtrarMarca('motorola', this)">
+        <img
+          src="imgscatalogo/motorola-logo.webp"
+          alt="Motorola"
+          class="filtro-logo-img"
+        />
+        Motorola
+      </button>
+    </div>
+
+    <!-- CATÁLOGO -->
+    <main class="catalogo-main">
+      <!-- APPLE -->
+      <div class="catalogo-seccion" id="seccion-apple" data-marca="apple">
+        <h2 class="marca-titulo">
+          <img src="imgscatalogo/apple-logo1.png" alt="Apple" class="filtro-logo-img" />
+          Apple
+        </h2>
+        <div class="marca-slider-wrapper">
+          <button
+            class="slider-btn slider-left"
+            onclick="moverSlider('apple', -1)"
+          >
+            ←
+          </button>
+          <div class="marca-slider" id="slider-apple">
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="img/iphone17pro.png" alt="iPhone 17 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 17 Pro</h4>
+                <p class="cat-precio">S/ 4,500</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone17.png" alt="iPhone 17" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 17</h4>
+                <p class="cat-precio">S/ 3,999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 8GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone16max.png" alt="iPhone 16 Pro Max" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 16 Pro Max</h4>
+                <p class="cat-precio">S/ 4,200</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 8GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone16pro.png" alt="iPhone 16 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 16 Pro</h4>
+                <p class="cat-precio">S/ 3,800</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone16.png" alt="iPhone 16" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 16</h4>
+                <p class="cat-precio">S/ 3,299</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone14Pro.png" alt="iPhone 14" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 14 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 2,999</p>
+                <p class="cat-estado estado-agotado">❌ Agotado</p>
+                <p class="cat-datos">128GB · 6GB RAM · 48MP</p>
+                <button class="btn-comprar" disabled>Sin stock</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone13max.png" alt="iPhone 13 Pro Max" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 13 Pro Max</h4>
+                <p class="cat-precio">S/ 2,300</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 6GB RAM · 48MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/iphone13.png" alt="iPhone 13" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 13</h4>
+                <p class="cat-precio">S/ 1,900</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 12MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Iphone12ProMAX.png" alt="iPhone 12 Pro Max" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 12 Pro Max</h4>
+                <p class="cat-precio">S/ 1,500</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 12MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Iphone11.png" alt="iPhone 11" />
+              </div>
+              <div class="cat-info">
+                <h4>iPhone 11 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">64GB · 4GB RAM · 12MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slider-btn slider-right"
+            onclick="moverSlider('apple', 1)"
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <!-- SAMSUNG -->
+      <div class="catalogo-seccion" id="seccion-samsung" data-marca="samsung">
+        <h2 class="marca-titulo">
+          <img
+            src="imgscatalogo/samsung1-logo.png"
+            alt="Samsung"
+            class="filtro-logo-img"
+          />
+          Samsung
+        </h2>
+        <div class="marca-slider-wrapper">
+          <button
+            class="slider-btn slider-left"
+            onclick="moverSlider('samsung', -1)"
+          >
+            ←
+          </button>
+          <div class="marca-slider" id="slider-samsung">
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="img/s25ultra.png" alt="Galaxy S25 Ultra" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy S25 Ultra</h4>
+                <p class="cat-precio">S/ 4,200</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 12GB RAM · 200MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/s25+.png" alt="Galaxy S25+" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy S25+</h4>
+                <p class="cat-precio">S/ 3,500</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/S25.png" alt="Galaxy S25" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy S25</h4>
+                <p class="cat-precio">S/ 2,999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/S24ultra.png" alt="Galaxy S24 Ultra" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy S24 Ultra</h4>
+                <p class="cat-precio">S/ 3,800</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 12GB RAM · 200MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/fold6.png" alt="Galaxy Z Fold 6" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy Z Fold 6</h4>
+                <p class="cat-precio">S/ 5,500</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/GalaxyZFlip6.png" alt="Galaxy Z Flip 6" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy Z Flip 6</h4>
+                <p class="cat-precio">S/ 3,600</p>
+                <p class="cat-estado estado-agotado">❌ Agotado</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar" disabled>Sin stock</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/A55.png" alt="Galaxy A55" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy A55</h4>
+                <p class="cat-precio">S/ 1,499</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/A35.png" alt="Galaxy A35" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy A35</h4>
+                <p class="cat-precio">S/ 1,199</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/A25.png" alt="Galaxy A25" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy A25 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 899</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/A15.png" alt="Galaxy A15" />
+              </div>
+              <div class="cat-info">
+                <h4>Galaxy A15 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 699</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slider-btn slider-right"
+            onclick="moverSlider('samsung', 1)"
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <!-- XIAOMI -->
+      <div class="catalogo-seccion" id="seccion-xiaomi" data-marca="xiaomi">
+        <h2 class="marca-titulo">
+          <img
+            src="imgscatalogo/xiaomi-logo.png"
+            alt="Xiaomi"
+            class="filtro-logo-img"
+          />
+          Xiaomi
+        </h2>
+        <div class="marca-slider-wrapper">
+          <button
+            class="slider-btn slider-left"
+            onclick="moverSlider('xiaomi', -1)"
+          >
+            ←
+          </button>
+          <div class="marca-slider" id="slider-xiaomi">
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="img/xiaomi.jpeg" alt="Xiaomi 14 Ultra" />
+              </div>
+              <div class="cat-info">
+                <h4>Xiaomi 14 Ultra</h4>
+                <p class="cat-precio">S/ 3,200</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 16GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Xiaomi 14.png" alt="Xiaomi 14" />
+              </div>
+              <div class="cat-info">
+                <h4>Xiaomi 14</h4>
+                <p class="cat-precio">S/ 2,500</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Xiaomi 13T Pro.png" alt="Xiaomi 13T Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Xiaomi 13T Pro</h4>
+                <p class="cat-precio">S/ 2,100</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi Note 13 Pro+.png" alt="Redmi Note 13 Pro+" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi Note 13 Pro+</h4>
+                <p class="cat-precio">S/ 1,499</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 200MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi Note 13 Pro.png" alt="Redmi Note 13 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi Note 13 Pro</h4>
+                <p class="cat-precio">S/ 1,199</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 8GB RAM · 200MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi Note 13.png" alt="Redmi Note 13" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi Note 13</h4>
+                <p class="cat-precio">S/ 899</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 108MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi 13C.png" alt="Redmi 13C" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi 13C</h4>
+                <p class="cat-precio">S/ 599</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi 12.png" alt="Redmi 12" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi 12 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 549</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Redmi A3.png" alt="Redmi A3" />
+              </div>
+              <div class="cat-info">
+                <h4>Redmi A3 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 399</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">64GB · 3GB RAM · 8MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Xiaomi MIX Fold 3.png" alt="Xiaomi MIX Fold 3" />
+              </div>
+              <div class="cat-info">
+                <h4>Xiaomi MIX Fold 3</h4>
+                <p class="cat-precio">S/ 4,800</p>
+                <p class="cat-estado estado-agotado">❌ Agotado</p>
+                <p class="cat-datos">512GB · 16GB RAM · 50MP</p>
+                <button class="btn-comprar" disabled>Sin stock</button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slider-btn slider-right"
+            onclick="moverSlider('xiaomi', 1)"
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <!-- POCO -->
+      <div class="catalogo-seccion" id="seccion-poco" data-marca="poco">
+        <h2 class="marca-titulo">
+          <img src="imgscatalogo/poco-logo.png" alt="Poco" class="filtro-logo-img" />
+          Poco
+        </h2>
+        <div class="marca-slider-wrapper">
+          <button
+            class="slider-btn slider-left"
+            onclick="moverSlider('poco', -1)"
+          >
+            <!-- ... -->←
+          </button>
+          <div class="marca-slider" id="slider-poco">
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco X7 Pro.png" alt="Poco X7 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco X7 Pro</h4>
+                <p class="cat-precio">S/ 1,299</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco X7.png" alt="Poco X7" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco X7</h4>
+                <p class="cat-precio">S/ 999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco F6 Pro.png" alt="Poco F6 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco F6 Pro</h4>
+                <p class="cat-precio">S/ 1,599</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco F6.png" alt="Poco F6" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco F6</h4>
+                <p class="cat-precio">S/ 1,299</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco M6 Pro.png" alt="Poco M6 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco M6 Pro</h4>
+                <p class="cat-precio">S/ 899</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 64MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco M6.png" alt="Poco M6" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco M6 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 699</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 6GB RAM · 64MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco X6 Pro.png" alt="Poco X6 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco X6 Pro</h4>
+                <p class="cat-precio">S/ 1,199</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 64MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco F5 Pro.png" alt="Poco F5 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco F5 Pro</h4>
+                <p class="cat-precio">S/ 1,399</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 64MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco C65.png" alt="Poco C65" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco C65 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 499</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Poco C55.png" alt="Poco C55" />
+              </div>
+              <div class="cat-info">
+                <h4>Poco C55 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 449</p>
+                <p class="cat-estado estado-agotado">❌ Agotado</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar" disabled>Sin stock</button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slider-btn slider-right"
+            onclick="moverSlider('poco', 1)"
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <!-- MOTOROLA -->
+      <div class="catalogo-seccion" id="seccion-motorola" data-marca="motorola">
+        <h2 class="marca-titulo">
+          <img
+            src="imgscatalogo/motorola-logo.webp"
+            alt="Motorola"
+            class="filtro-logo-img"
+          />
+          Motorola
+        </h2>
+        <div class="marca-slider-wrapper">
+          <button
+            class="slider-btn slider-left"
+            onclick="moverSlider('motorola', -1)"
+          >
+            ←
+          </button>
+          <div class="marca-slider" id="slider-motorola">
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Edge 50 Ultra.png" alt="Edge 50 Ultra" />
+              </div>
+              <div class="cat-info">
+                <h4>Edge 50 Ultra</h4>
+                <p class="cat-precio">S/ 2,999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 16GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Edge 50 Pro.png" alt="Edge 50 Pro" />
+              </div>
+              <div class="cat-info">
+                <h4>Edge 50 Pro</h4>
+                <p class="cat-precio">S/ 2,299</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Edge 50.png" alt="Edge 50" />
+              </div>
+              <div class="cat-info">
+                <h4>Edge 50</h4>
+                <p class="cat-precio">S/ 1,799</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Razr 50 Ultra.png" alt="Razr 50 Ultra" />
+              </div>
+              <div class="cat-info">
+                <h4>Razr 50 Ultra</h4>
+                <p class="cat-precio">S/ 3,800</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">512GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto G84.png" alt="Moto G84" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto G84</h4>
+                <p class="cat-precio">S/ 999</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">256GB · 12GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto G64.png" alt="Moto G64" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto G64</h4>
+                <p class="cat-precio">S/ 799</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto G54.png" alt="Moto G54" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto G54</h4>
+                <p class="cat-precio">S/ 699</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 8GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto G34.png" alt="Moto G34" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto G34 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 549</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto G14.png" alt="Moto G14" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto G14 (Reacondicionado) </h4>
+                <p class="cat-precio">S/ 449</p>
+                <p class="cat-estado estado-stock">✅ En stock</p>
+                <p class="cat-datos">128GB · 4GB RAM · 50MP</p>
+                <button class="btn-comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-img">
+                <img src="imgscatalogo/Moto E14.png" alt="Moto E14" />
+              </div>
+              <div class="cat-info">
+                <h4>Moto E14 (Reacondicionado)</h4>
+                <p class="cat-precio">S/ 349</p>
+                <p class="cat-estado estado-agotado">❌ Agotado</p>
+                <p class="cat-datos">64GB · 2GB RAM · 13MP</p>
+                <button class="btn-comprar" disabled>Sin stock</button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slider-btn slider-right"
+            onclick="moverSlider('motorola', 1)"
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">CLICK<span>CELL</span></div>
+
+      <div class="footer-copy">
+        © 2026 ClickCell. Todos los derechos reservados.
+      </div>
+
+      <nav class="footer-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </footer>
+
+    <script>
+      window.onload = () => {
+        const params = new URLSearchParams(window.location.search);
+        const marca = params.get("marca");
+
+        if (marca) {
+          const btn = document.querySelector(`[onclick*="${marca}"]`);
+          if (btn) btn.click();
+        }
+      };
+    </script>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menuLinks");
+        menu.classList.toggle("active");
+      }
+    </script>
+
+    <script>
+      // ===================== FILTRO DE MARCAS =====================
+      function filtrarMarca(marca, btn) {
+        document
+          .querySelectorAll(".filtro-btn")
+          .forEach((b) => b.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        document.querySelectorAll(".catalogo-seccion").forEach((seccion) => {
+          const esTodos = marca === "todos";
+          const esSeleccionado = seccion.dataset.marca === marca;
+
+          // Mostrar / ocultar secciones
+          const mostrar = esTodos || esSeleccionado;
+          seccion.style.display = mostrar ? "block" : "none";
+
+          if (mostrar) {
+            if (esTodos) {
+              // 🔥 TODOS → slider normal
+              seccion.classList.remove("modo-lista");
+            } else {
+              // 🔥 MARCA → modo lista (sin slider)
+              seccion.classList.add("modo-lista");
+            }
+          }
+        });
+      }
+
+      // ===================== SLIDER INFINITO =====================
+      function moverSlider(marca, direccion) {
+        const slider = document.getElementById(`slider-${marca}`);
+        const tarjetas = slider.querySelectorAll(".cat-card");
+
+        if (tarjetas.length === 0) return;
+
+        const tarjetaAncho = tarjetas[0].offsetWidth + 25;
+        const tiempoAnimacion = 400;
+
+        if (direccion === 1) {
+          slider.style.transition = `transform ${tiempoAnimacion}ms ease-in-out`;
+          slider.style.transform = `translateX(-${tarjetaAncho}px)`;
+
+          setTimeout(() => {
+            slider.style.transition = "none";
+            slider.appendChild(tarjetas[0]);
+            slider.style.transform = "translateX(0)";
+          }, tiempoAnimacion);
+        } else if (direccion === -1) {
+          slider.style.transition = "none";
+          const ultimaTarjeta = tarjetas[tarjetas.length - 1];
+          slider.insertBefore(ultimaTarjeta, tarjetas[0]);
+
+          slider.style.transform = `translateX(-${tarjetaAncho}px)`;
+
+          setTimeout(() => {
+            slider.style.transition = `transform ${tiempoAnimacion}ms ease-in-out`;
+            slider.style.transform = "translateX(0)";
+          }, 20);
+        }
+      }
+    </script>
+  </body>
+</html>
