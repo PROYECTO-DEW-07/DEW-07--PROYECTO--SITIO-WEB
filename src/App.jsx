@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Estadisticas from "./components/Estadisticas";
 import Marcas from "./components/Marcas";
 import Contacto from "./components/Contacto";
+import Catalogo from "./pages/Catalogo";
 
 function Home() {
   return (
@@ -18,18 +19,6 @@ function Home() {
   );
 }
 
-function Catalogo() {
-  return (
-    <div style={{ padding: "40px" }}>
-      <h1 style={{ color: "#0f2d6b" }}>Catálogo</h1>
-      <ul>
-        {productos.map((p) => (
-          <li key={p.id}>{p.nombre} — {p.marca} — S/ {p.precio}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 function App() {
   return (
