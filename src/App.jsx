@@ -3,11 +3,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import productos from "./data/productos";
 import Hero from "./components/Hero";
+import Estadisticas from "./components/Estadisticas";
 
 function Home() {
   return (
     <div>
       <Hero />
+      <Estadisticas />
     </div>
   );
 }
