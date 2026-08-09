@@ -8,6 +8,7 @@ import Marcas from "./components/Marcas";
 import Contacto from "./components/Contacto";
 import Catalogo from "./pages/Catalogo";
 import Carrito from "./pages/Carrito";
+import DetalleProducto from "./pages/DetalleProducto";
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/carrito" element={<Carrito />} />

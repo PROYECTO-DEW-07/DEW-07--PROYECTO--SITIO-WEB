@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 
 function ProductCard({ producto }) {
@@ -6,18 +7,22 @@ function ProductCard({ producto }) {
 
   return (
     <div style={styles.card}>
-      <div style={styles.imgBox}>
-        <span style={{ fontSize: "40px" }}>📱</span>
-      </div>
+      <Link to={`/producto/${producto.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+        <div style={styles.imgBox}>
+          <span style={{ fontSize: "40px" }}>📱</span>
+        </div>
 
-      <div style={styles.info}>
-        <h4 style={styles.nombre}>{producto.nombre}</h4>
-        <p style={styles.precio}>S/ {producto.precio.toLocaleString("es-PE")}</p>
-        <p style={{ ...styles.estado, color: enStock ? "#16a34a" : "#dc2626" }}>
-          {enStock ? "✅ En stock" : "❌ Agotado"}
-        </p>
-        <p style={styles.datos}>{producto.almacenamiento}</p>
+        <div style={styles.info}>
+          <h4 style={styles.nombre}>{producto.nombre}</h4>
+          <p style={styles.precio}>S/ {producto.precio.toLocaleString("es-PE")}</p>
+          <p style={{ ...styles.estado, color: enStock ? "#16a34a" : "#dc2626" }}>
+            {enStock ? "✅ En stock" : "❌ Agotado"}
+          </p>
+          <p style={styles.datos}>{producto.almacenamiento}</p>
+        </div>
+      </Link>
 
+      <div style={{ padding: "0 20px 18px" }}>
         <button
           disabled={!enStock}
           onClick={() => addToCart(producto)}
