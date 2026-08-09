@@ -1,18 +1,53 @@
+import { useState, useEffect } from "react";
+
+const slides = [
+  {
+    titulo: "Tu próximo celular está aquí",
+    promo: "¡Estrena tu celular hoy mismo!",
+    precioTexto: "Smartphones desde:",
+    precio: "S/ 2,999",
+  },
+  {
+    titulo: "iPhone 17 Pro",
+    promo: "¡Nuevo ingreso!",
+    precioTexto: "Disponible desde:",
+    precio: "S/ 4,500",
+  },
+  {
+    titulo: "Samsung Galaxy S25 Ultra",
+    promo: "¡Oferta limitada!",
+    precioTexto: "Consíguelo desde:",
+    precio: "S/ 4,200",
+  },
+];
+
 function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = slides[index];
+
   return (
     <section style={styles.hero}>
-      <h1 style={styles.titulo}>Tu próximo celular está aquí</h1>
+      <h1 style={styles.titulo}>{slide.titulo}</h1>
 
       <div style={styles.content}>
-        <div style={styles.promo}>¡Estrena tu celular hoy mismo!</div>
+        <div style={styles.promo}>{slide.promo}</div>
 
         <div style={styles.phoneBox}>
           <span style={{ fontSize: "64px" }}>📱</span>
         </div>
 
         <div style={styles.precioBox}>
-          <span>Smartphones desde:</span>
-          <strong style={styles.precioStrong}>S/ 2,999</strong>
+          <span>{slide.precioTexto}</span>
+          <strong style={styles.precioStrong}>{slide.precio}</strong>
         </div>
       </div>
     </section>
@@ -78,7 +113,7 @@ const styles = {
     fontSize: "2rem",
     color: "#0f2d6b",
     minWidth: "180px",
-    whitespace: "nowrap",
+    whiteSpace: "nowrap",
   },
 };
 
