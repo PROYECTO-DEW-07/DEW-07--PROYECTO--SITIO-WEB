@@ -2,9 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import productos from "./data/productos";
+import Hero from "./components/Hero";
 
 function Home() {
-  return <h1 style={{ padding: "40px" }}>Página de inicio (por armar)</h1>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }
 
 function Catalogo() {
