@@ -1,5 +1,8 @@
+import { useCart } from "../Context/CartContext";
+
 function ProductCard({ producto }) {
   const enStock = producto.stock > 0;
+  const { addToCart } = useCart();
 
   return (
     <div style={styles.card}>
@@ -15,7 +18,11 @@ function ProductCard({ producto }) {
         </p>
         <p style={styles.datos}>{producto.almacenamiento}</p>
 
-        <button disabled={!enStock} style={enStock ? styles.btn : styles.btnDisabled}>
+        <button
+          disabled={!enStock}
+          onClick={() => addToCart(producto)}
+          style={enStock ? styles.btn : styles.btnDisabled}
+        >
           {enStock ? "Comprar" : "Sin stock"}
         </button>
       </div>

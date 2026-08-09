@@ -7,6 +7,7 @@ import Estadisticas from "./components/Estadisticas";
 import Marcas from "./components/Marcas";
 import Contacto from "./components/Contacto";
 import Catalogo from "./pages/Catalogo";
+import Carrito from "./pages/Carrito";
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
+        <Route path="/carrito" element={<Carrito />} />
       </Routes>
       <Footer />
     </BrowserRouter>
