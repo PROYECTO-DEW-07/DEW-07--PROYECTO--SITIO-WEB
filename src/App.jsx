@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import productos from "./data/productos";
 
 function Home() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
