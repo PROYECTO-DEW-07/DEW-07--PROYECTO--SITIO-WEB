@@ -10,6 +10,7 @@ import Catalogo from "./pages/Catalogo";
 import Carrito from "./pages/Carrito";
 import DetalleProducto from "./pages/DetalleProducto";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="/" element={<Home />} />
