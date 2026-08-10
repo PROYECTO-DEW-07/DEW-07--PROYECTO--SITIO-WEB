@@ -11,6 +11,7 @@ import Carrito from "./pages/Carrito";
 import DetalleProducto from "./pages/DetalleProducto";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
+import PanelAdmin from "./pages/PanelAdmin";
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/admin" element={<PanelAdmin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />

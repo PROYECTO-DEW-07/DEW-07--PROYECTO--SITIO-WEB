@@ -1,10 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import productos from "../data/productos";
+import { useProducts } from "../Context/ProductContext";
 import { useCart } from "../Context/CartContext";
 
 function DetalleProducto() {
   const { id } = useParams();
+  const { productos } = useProducts();
   const producto = productos.find((p) => p.id === Number(id));
   const { addToCart } = useCart();
   const [cantidad, setCantidad] = useState(1);

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import productos from "../data/productos";
+import { useProducts } from "../Context/ProductContext";  
 import ProductCard from "../components/ProductCard";
 
 const marcas = ["Todos", "Apple", "Samsung", "Xiaomi", "Poco"];
 
 function Catalogo() {
   const [searchParams] = useSearchParams();
+  const { productos } = useProducts();
   const marcaDesdeUrl = searchParams.get("marca");
 
   const marcaInicial = marcaDesdeUrl
