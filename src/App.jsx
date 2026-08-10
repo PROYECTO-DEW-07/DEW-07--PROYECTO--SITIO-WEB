@@ -9,6 +9,7 @@ import Contacto from "./components/Contacto";
 import Catalogo from "./pages/Catalogo";
 import Carrito from "./pages/Carrito";
 import DetalleProducto from "./pages/DetalleProducto";
+import Checkout from "./pages/Checkout";
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />

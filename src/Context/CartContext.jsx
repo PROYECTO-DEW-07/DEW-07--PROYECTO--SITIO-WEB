@@ -21,11 +21,15 @@ export function CartProvider({ children }) {
     setCart((prev) => prev.filter((item) => item.id !== id));
   }
 
+  function clearCart() {
+    setCart([]);
+  }
+
   const totalItems = cart.reduce((sum, item) => sum + item.cantidad, 0);
   const totalPrecio = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, totalItems, totalPrecio }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, totalItems, totalPrecio }}>
       {children}
     </CartContext.Provider>
   );
