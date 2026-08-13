@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../Context/ProductContext";  
 import ProductCard from "../components/ProductCard";
 
-const marcas = ["Todos", "Apple", "Samsung", "Xiaomi", "Poco"];
+const marcas = ["Todos", "Apple", "Samsung", "Xiaomi", "Poco", "Motorola"];
 
 function Catalogo() {
   const [searchParams] = useSearchParams();

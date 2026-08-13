@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 
 const marcas = [
-  { nombre: "Apple", tag: "🔥 Más vendida", precio: "Desde S/ 2,999", slug: "apple" },
-  { nombre: "Samsung", tag: "⭐ Recomendado", precio: "Desde S/ 1,499", slug: "samsung" },
-  { nombre: "Xiaomi", tag: "💰 Mejor precio", precio: "Desde S/ 899", slug: "xiaomi" },
-  { nombre: "Poco", tag: "⚡ Máxima potencia", precio: "Desde S/ 799", slug: "poco" },
+  { nombre: "Apple", tag: "🔥 Más vendida", precio: "Desde S/ 999", slug: "apple", logo: "/productos/apple-logo1.png" },
+  { nombre: "Samsung", tag: "⭐ Recomendado", precio: "Desde S/ 699", slug: "samsung", logo: "/productos/samsung1-logo.png" },
+  { nombre: "Xiaomi", tag: "💰 Mejor precio", precio: "Desde S/ 399", slug: "xiaomi", logo: "/productos/xiaomi-logo.png" },
+  { nombre: "Poco", tag: "⚡ Máxima potencia", precio: "Desde S/ 449", slug: "poco", logo: "/productos/poco-logo.png" },
+  { nombre: "Motorola", tag: "🎯 Buena relación calidad-precio", precio: "Desde S/ 349", slug: "motorola", logo: "/productos/motorola-logo.webp" },
 ];
 
 function Marcas() {
@@ -16,9 +17,9 @@ function Marcas() {
       <div style={styles.grid}>
         {marcas.map((marca) => (
           <div key={marca.slug} style={styles.card}>
-            <div style={styles.imagen}>
-              <span style={{ fontSize: "48px" }}>📱</span>
-            </div>
+          <div style={styles.imagen}>
+        <img src={marca.logo} alt={marca.nombre} style={{ width: "70%", height: "70%", objectFit: "contain" }} />
+</div>
 
             <div style={styles.tag}>{marca.tag}</div>
 
@@ -60,8 +61,8 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "30px",
+    gridTemplateColumns: "repeat(5, 1fr)",
+    gap: "24px",
     margin: "30px",
   },
   card: {

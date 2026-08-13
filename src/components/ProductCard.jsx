@@ -9,8 +9,10 @@ function ProductCard({ producto }) {
     <div style={styles.card}>
       <Link to={`/producto/${producto.id}`} style={{ textDecoration: "none", color: "inherit" }}>
         <div style={styles.imgBox}>
-          <span style={{ fontSize: "40px" }}>📱</span>
+          <img src={producto.imagen} alt={producto.nombre} style={styles.img} />
+          
         </div>
+        
 
         <div style={styles.info}>
           <h4 style={styles.nombre}>{producto.nombre}</h4>
@@ -52,6 +54,12 @@ const styles = {
     alignItems: "center",
     height: "160px",
   },
+  img: {
+  width: "100%",
+  height: "100%",
+  objectFit: "contain",
+  padding: "10px",
+},
   info: {
     padding: "18px 20px",
     display: "flex",

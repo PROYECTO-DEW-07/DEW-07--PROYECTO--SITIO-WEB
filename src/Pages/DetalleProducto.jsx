@@ -36,8 +36,8 @@ function DetalleProducto() {
 
       <div style={styles.card}>
         <div style={styles.imgBox}>
-          <span style={{ fontSize: "80px" }}>📱</span>
-        </div>
+  <img src={producto.imagen} alt={producto.nombre} style={{ width: "100%", height: "100%", objectFit: "contain", padding: "16px" }} />
+</div>
 
         <div>
           <h1 style={styles.nombre}>{producto.nombre}</h1>

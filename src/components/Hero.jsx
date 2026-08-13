@@ -2,24 +2,28 @@ import { useState, useEffect } from "react";
 
 const slides = [
   {
-    titulo: "Tu próximo celular está aquí",
-    promo: "¡Estrena tu celular hoy mismo!",
-    precioTexto: "Smartphones desde:",
-    precio: "S/ 2,999",
-  },
-  {
     titulo: "iPhone 17 Pro",
     promo: "¡Nuevo ingreso!",
     precioTexto: "Disponible desde:",
     precio: "S/ 4,500",
+    imagen: "/productos/iphone17pro.png",
   },
   {
-    titulo: "Samsung Galaxy S25 Ultra",
+    titulo: "Galaxy S25 Ultra",
     promo: "¡Oferta limitada!",
     precioTexto: "Consíguelo desde:",
     precio: "S/ 4,200",
+    imagen: "/productos/s25ultra.png",
+  },
+  {
+    titulo: "Xiaomi 14 Ultra",
+    promo: "¡Máxima potencia!",
+    precioTexto: "Smartphones desde:",
+    precio: "S/ 3,200",
+    imagen: "/productos/xiaomi.jpeg",
   },
 ];
+
 
 function Hero() {
   const [index, setIndex] = useState(0);
@@ -41,9 +45,9 @@ function Hero() {
       <div style={styles.content}>
         <div style={styles.promo}>{slide.promo}</div>
 
-        <div style={styles.phoneBox}>
-          <span style={{ fontSize: "64px" }}>📱</span>
-        </div>
+       <div style={styles.phoneBox}>
+  <img src={slide.imagen} alt={slide.titulo} style={{ width: "85%", height: "85%", objectFit: "contain" }} />
+</div>
 
         <div style={styles.precioBox}>
           <span>{slide.precioTexto}</span>
