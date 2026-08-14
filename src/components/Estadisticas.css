@@ -1,0 +1,50 @@
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.estadisticas-card {
+  background: white;
+  border: 2px solid #1d4ed8;
+  border-radius: 200px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.estadisticas-numero {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0ea5e9;
+}
+
+.estadisticas-nombre {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+@media (max-width: 768px) {
+  .estadisticas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 24px;
+  }
+  .estadisticas-card {
+    border-radius: 20px;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .estadisticas-grid {
+    grid-template-columns: 1fr;
+  }
+}

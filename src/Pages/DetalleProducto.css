@@ -1,0 +1,127 @@
+.detalle-page {
+  padding: 36px 40px;
+  background: #eaf3f4;
+  min-height: 480px;
+}
+
+.detalle-breadcrumb {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.detalle-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.detalle-img-box {
+  background: #eaf3f4;
+  border-radius: 16px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detalle-nombre {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f2d6b;
+  margin: 0 0 6px;
+}
+
+.detalle-precio {
+  font-size: 26px;
+  font-weight: 800;
+  color: #09a0e6;
+  margin: 0 0 8px;
+}
+
+.detalle-estado {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.detalle-datos {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.detalle-cantidad-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.detalle-cantidad-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalle-cantidad-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  color: #0f2d6b;
+}
+
+.detalle-cantidad-num {
+  font-weight: 700;
+  color: #0f2d6b;
+  min-width: 20px;
+  text-align: center;
+}
+
+.detalle-btn-comprar {
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #09a0e6, #0f2d6b);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.detalle-btn-disabled {
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  background: #94a3b8;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .detalle-page {
+    padding: 24px 16px;
+  }
+  .detalle-card {
+    grid-template-columns: 1fr;
+  }
+  .detalle-img-box {
+    height: 200px;
+  }
+}
