@@ -1,62 +1,26 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import "./Navbar.css";
 
 function Navbar() {
   const { totalItems } = useCart();
 
   return (
-    <nav style={styles.navbar}>
-      <Link to="/" style={styles.logo}>
+    <nav className="navbar">
+      <Link to="/" className="navbar-logo">
         CLICK<span style={{ color: "#bfe9fb" }}>CELL</span>
       </Link>
 
-      <div style={styles.links}>
-        <Link to="/" style={styles.link}>Inicio</Link>
-        <Link to="/catalogo" style={styles.link}>Catálogo</Link>
-        <Link to="/carrito" style={styles.link}>
+      <div className="navbar-links">
+        <Link to="/" className="navbar-link">Inicio</Link>
+        <Link to="/catalogo" className="navbar-link">Catálogo</Link>
+        <Link to="/carrito" className="navbar-link">
           Carrito {totalItems > 0 && `(${totalItems})`}
         </Link>
-        <Link to="/login" style={styles.btnLogin}>Iniciar Sesión</Link>
+        <Link to="/login" className="navbar-btn-login">Iniciar Sesión</Link>
       </div>
     </nav>
   );
 }
-
-const styles = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "20px 40px",
-    background: "linear-gradient(135deg, #0f2d6b, #09a0e6)",
-  },
-  logo: {
-    fontWeight: 800,
-    color: "white",
-    fontSize: "22px",
-    textDecoration: "none",
-  },
-  links: {
-    display: "flex",
-    gap: "28px",
-    alignItems: "center",
-  },
-  link: {
-    color: "white",
-    fontWeight: 700,
-    fontSize: "15px",
-    textDecoration: "none",
-  },
-  btnLogin: {
-    background: "rgba(255,255,255,0.15)",
-    border: "1px solid rgba(255,255,255,0.4)",
-    color: "white",
-    borderRadius: "8px",
-    padding: "8px 18px",
-    fontWeight: 600,
-    fontSize: "13px",
-    textDecoration: "none",
-  },
-};
 
 export default Navbar;
