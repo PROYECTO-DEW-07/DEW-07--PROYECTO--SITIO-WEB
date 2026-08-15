@@ -29,15 +29,17 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/admin" element={<PanelAdmin />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/producto/:id" element={<DetalleProducto />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/carrito" element={<Carrito />} />
-      </Routes>
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
+          <Route path="/admin" element={<PanelAdmin />} />
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   );
