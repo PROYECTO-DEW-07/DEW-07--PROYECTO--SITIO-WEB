@@ -220,3 +220,26 @@
   cursor: pointer;
   font-size: 14px;
 }
+.orden-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.orden-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.orden-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+  color: #0f2d6b;
+  cursor: pointer;
+}

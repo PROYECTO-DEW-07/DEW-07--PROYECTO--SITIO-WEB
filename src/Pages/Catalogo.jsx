@@ -30,6 +30,7 @@ function Catalogo() {
   const [filtroMarca, setFiltroMarca] = useState(marcaInicial);
   const [filtroPrecio, setFiltroPrecio] = useState("todos");
   const [filtroAlmacenamiento, setFiltroAlmacenamiento] = useState("Todos");
+  const [orden, setOrden] = useState("recomendados");
 
   const productosFiltrados = productos.filter((producto) => {
     const coincideMarca = filtroMarca === "Todos" || producto.marca === filtroMarca;
@@ -52,11 +53,20 @@ function Catalogo() {
     return coincideMarca && coincidePrecio && coincideAlmacenamiento && coincideBusqueda;
   });
 
+  const productosOrdenados = [...productosFiltrados].sort((a, b) => {
+    if (orden === "precio-asc") return a.precio - b.precio;
+    if (orden === "precio-desc") return b.precio - a.precio;
+    if (orden === "nombre-asc") return a.nombre.localeCompare(b.nombre);
+    if (orden === "nombre-desc") return b.nombre.localeCompare(a.nombre);
+    return 0;
+  });
+
   function limpiarFiltros() {
     setFiltroMarca("Todos");
     setFiltroPrecio("todos");
     setFiltroAlmacenamiento("Todos");
     setBusqueda("");
+    setOrden("recomendados");
   }
 
   return (
@@ -78,6 +88,22 @@ function Catalogo() {
           {busqueda && (
             <button onClick={() => setBusqueda("")} className="buscador-limpiar">✕</button>
           )}
+        </div>
+
+        <div className="orden-wrap">
+          <label htmlFor="orden" className="orden-label">Ordenar por:</label>
+          <select
+            id="orden"
+            value={orden}
+            onChange={(e) => setOrden(e.target.value)}
+            className="orden-select"
+          >
+            <option value="recomendados">Recomendados</option>
+            <option value="precio-asc">Precio: menor a mayor</option>
+            <option value="precio-desc">Precio: mayor a menor</option>
+            <option value="nombre-asc">Nombre: A-Z</option>
+            <option value="nombre-desc">Nombre: Z-A</option>
+          </select>
         </div>
 
         <div className="filtro-grupo">
@@ -132,12 +158,12 @@ function Catalogo() {
 
       <div className="catalogo-main">
         <p className="resultado-filtros">
-          {productosFiltrados.length} producto
-          {productosFiltrados.length !== 1 ? "s" : ""} encontrado
-          {productosFiltrados.length !== 1 ? "s" : ""}
+          {productosOrdenados.length} producto
+          {productosOrdenados.length !== 1 ? "s" : ""} encontrado
+          {productosOrdenados.length !== 1 ? "s" : ""}
         </p>
 
-        {productosFiltrados.length === 0 ? (
+        {productosOrdenados.length === 0 ? (
           <div className="sin-resultados">
             <h2>No encontramos productos</h2>
             <p>Prueba cambiando alguno de los filtros seleccionados.</p>
@@ -145,7 +171,7 @@ function Catalogo() {
           </div>
         ) : (
           <div className="catalogo-grid">
-            {productosFiltrados.map((producto) => (
+            {productosOrdenados.map((producto) => (
               <ProductCard key={producto.id} producto={producto} />
             ))}
           </div>
