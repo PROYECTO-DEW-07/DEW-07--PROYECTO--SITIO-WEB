@@ -187,3 +187,36 @@
     font-size: 12px;
   }
 }
+.buscador-wrap {
+  position: relative;
+  margin: 0 auto 8px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.buscador-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.buscador-input:focus {
+  outline: none;
+  border-color: #09a0e6;
+}
+
+.buscador-limpiar {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+}

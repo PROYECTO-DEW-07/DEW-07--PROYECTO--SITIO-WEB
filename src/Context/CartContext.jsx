@@ -5,29 +5,15 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function addToCart(producto, cantidad = 1) {
+  function addToCart(producto) {
     setCart((prev) => {
       const existe = prev.find((item) => item.id === producto.id);
-
       if (existe) {
-        const nuevaCantidad = existe.cantidad + cantidad;
-
-        if (nuevaCantidad > producto.stock) {
-          return prev;
-        }
-
         return prev.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: nuevaCantidad }
-            : item
+          item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
         );
       }
-
-      if (cantidad > producto.stock) {
-        return prev;
-      }
-
-      return [...prev, { ...producto, cantidad }];
+      return [...prev, { ...producto, cantidad: 1 }];
     });
   }
 
@@ -35,30 +21,30 @@ export function CartProvider({ children }) {
     setCart((prev) => prev.filter((item) => item.id !== id));
   }
 
+  function increaseQuantity(id) {
+    setCart((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item))
+    );
+  }
+
+  function decreaseQuantity(id) {
+    setCart((prev) =>
+      prev
+        .map((item) => (item.id === id ? { ...item, cantidad: item.cantidad - 1 } : item))
+        .filter((item) => item.cantidad > 0)
+    );
+  }
+
   function clearCart() {
     setCart([]);
   }
 
-  const totalItems = cart.reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
-
-  const totalPrecio = cart.reduce(
-    (sum, item) => sum + item.precio * item.cantidad,
-    0
-  );
+  const totalItems = cart.reduce((sum, item) => sum + item.cantidad, 0);
+  const totalPrecio = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 
   return (
     <CartContext.Provider
-      value={{
-        cart,
-        addToCart,
-        removeFromCart,
-        clearCart,
-        totalItems,
-        totalPrecio,
-      }}
+      value={{ cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, totalItems, totalPrecio }}
     >
       {children}
     </CartContext.Provider>
