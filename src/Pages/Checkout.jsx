@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import { useProducts } from "../Context/ProductContext";
 import "./Checkout.css";
 
 function Checkout() {
   const { cart, totalPrecio, clearCart } = useCart();
+  const { updateProduct } = useProducts();
   const navigate = useNavigate();
 
   const [nombre, setNombre] = useState("");
@@ -23,16 +25,34 @@ function Checkout() {
   }
 
   function handleConfirmar(e) {
-    e.preventDefault();
-    if (!nombre || !direccion || !ciudad) {
-      setError("Por favor completa todos los campos de envío.");
-      return;
-    }
-    setError("");
-    clearCart();
-    navigate("/", { state: { compraExitosa: true } });
+  e.preventDefault();
+
+  if (!nombre || !direccion || !ciudad) {
+    setError("Por favor completa todos los campos de envío.");
+    return;
   }
 
+  setError("");
+
+  cart.forEach((item) => {
+    const nuevoStock = Math.max(
+      0,
+      item.stock - item.cantidad
+    );
+
+    updateProduct(item.id, {
+      stock: nuevoStock,
+    });
+  });
+
+  clearCart();
+
+  navigate("/", {
+    state: {
+      compraExitosa: true,
+    },
+  });
+}
   return (
     <div className="checkout-page">
       <p className="checkout-paso">Paso 2 de 3 · Checkout</p>

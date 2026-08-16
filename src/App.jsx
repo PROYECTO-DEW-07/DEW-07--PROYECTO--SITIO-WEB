@@ -24,7 +24,6 @@ function Home() {
   );
 }
 
-
 function App() {
   return (
     <BrowserRouter>

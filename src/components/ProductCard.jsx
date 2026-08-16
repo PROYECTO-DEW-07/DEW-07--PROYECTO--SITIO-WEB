@@ -4,7 +4,16 @@ import "./ProductCard.css";
 
 function ProductCard({ producto }) {
   const enStock = producto.stock > 0;
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
+
+  const enCarrito = cart.find((item) => item.id === producto.id);
+  const cantidadEnCarrito = enCarrito ? enCarrito.cantidad : 0;
+  const disponible = producto.stock - cantidadEnCarrito;
+
+  function handleComprar() {
+    if (disponible <= 0) return;
+    addToCart(producto);
+  }
 
   return (
     <div className="product-card">
@@ -25,11 +34,11 @@ function ProductCard({ producto }) {
 
       <div className="product-btn-wrap">
         <button
-          disabled={!enStock}
-          onClick={() => addToCart(producto)}
-          className={enStock ? "product-btn" : "product-btn-disabled"}
+          disabled={!enStock || disponible <= 0}
+          onClick={handleComprar}
+          className={enStock && disponible > 0 ? "product-btn" : "product-btn-disabled"}
         >
-          {enStock ? "Comprar" : "Sin stock"}
+          {disponible <= 0 ? "Sin stock" : "Comprar"}
         </button>
       </div>
     </div>

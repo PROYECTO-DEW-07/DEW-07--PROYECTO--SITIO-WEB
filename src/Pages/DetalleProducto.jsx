@@ -23,7 +23,9 @@ function DetalleProducto() {
   const enStock = producto.stock > 0;
 
   function handleAgregar() {
-    for (let i = 0; i < cantidad; i++) addToCart(producto);
+    for (let i = 0; i < cantidad; i++) {
+      addToCart(producto);
+    }
   }
 
   return (
@@ -52,7 +54,7 @@ function DetalleProducto() {
             <div className="detalle-cantidad-controls">
               <button onClick={() => setCantidad((c) => Math.max(1, c - 1))} className="detalle-cantidad-btn">−</button>
               <span className="detalle-cantidad-num">{cantidad}</span>
-              <button onClick={() => setCantidad((c) => c + 1)} className="detalle-cantidad-btn">+</button>
+              <button onClick={() => setCantidad((c) => Math.min(producto.stock, c + 1))} className="detalle-cantidad-btn">+</button>
             </div>
           </div>
 
