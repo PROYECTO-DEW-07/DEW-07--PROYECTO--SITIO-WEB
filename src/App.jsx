@@ -6,12 +6,12 @@ import Hero from "./components/Hero";
 import Estadisticas from "./components/Estadisticas";
 import Marcas from "./components/Marcas";
 import Contacto from "./components/Contacto";
-import Catalogo from "./pages/Catalogo";
-import Carrito from "./pages/Carrito";
-import DetalleProducto from "./pages/DetalleProducto";
-import Checkout from "./pages/Checkout";
-import Login from "./pages/Login";
-import PanelAdmin from "./pages/PanelAdmin";
+import Catalogo from "./Pages/Catalogo";
+import Carrito from "./Pages/Carrito";
+import DetalleProducto from "./Pages/DetalleProducto";
+import Checkout from "./Pages/Checkout";
+import Login from "./Pages/Login";
+import PanelAdmin from "./Pages/PanelAdmin";
 
 function Home() {
   return (

@@ -8,7 +8,7 @@ function DetalleProducto() {
   const { id } = useParams();
   const { productos } = useProducts();
   const producto = productos.find((p) => p.id === Number(id));
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
   const [cantidad, setCantidad] = useState(1);
 
   if (!producto) {
@@ -22,10 +22,15 @@ function DetalleProducto() {
 
   const enStock = producto.stock > 0;
 
+  const enCarrito = cart.find((item) => item.id === producto.id);
+  const cantidadEnCarrito = enCarrito ? enCarrito.cantidad : 0;
+  const disponible = producto.stock - cantidadEnCarrito;
+
   function handleAgregar() {
     for (let i = 0; i < cantidad; i++) {
       addToCart(producto);
     }
+    setCantidad(1);
   }
 
   return (
@@ -49,16 +54,33 @@ function DetalleProducto() {
 
           <div className="detalle-datos">{producto.almacenamiento}</div>
 
-          <div className="detalle-cantidad-row">
-            <span style={{ fontWeight: 600, color: "#475569" }}>Cantidad</span>
-            <div className="detalle-cantidad-controls">
-              <button onClick={() => setCantidad((c) => Math.max(1, c - 1))} className="detalle-cantidad-btn">−</button>
-              <span className="detalle-cantidad-num">{cantidad}</span>
-              <button onClick={() => setCantidad((c) => Math.min(producto.stock, c + 1))} className="detalle-cantidad-btn">+</button>
-            </div>
-          </div>
+          {disponible > 0 ? (
+            <>
+              <div className="detalle-cantidad-row">
+                <span style={{ fontWeight: 600, color: "#475569" }}>Cantidad</span>
+                <div className="detalle-cantidad-controls">
+                  <button onClick={() => setCantidad((c) => Math.max(1, c - 1))} className="detalle-cantidad-btn">−</button>
+                  <span className="detalle-cantidad-num">{cantidad}</span>
+                  <button onClick={() => setCantidad((c) => Math.min(disponible, c + 1))} className="detalle-cantidad-btn">+</button>
+                </div>
+              </div>
+              {cantidadEnCarrito > 0 && (
+                <p style={{ fontSize: "12px", color: "#64748b", marginTop: "-8px", marginBottom: "16px" }}>
+                  Ya tienes {cantidadEnCarrito} en tu carrito · quedan {disponible} disponibles
+                </p>
+              )}
+            </>
+          ) : (
+            <p style={{ fontSize: "13px", color: "#dc2626", fontWeight: 600, marginBottom: "16px" }}>
+              Ya agregaste todo el stock disponible al carrito
+            </p>
+          )}
 
-          <button disabled={!enStock} onClick={handleAgregar} className={enStock ? "detalle-btn-comprar" : "detalle-btn-disabled"}>
+          <button
+            disabled={!enStock || disponible <= 0}
+            onClick={handleAgregar}
+            className={enStock && disponible > 0 ? "detalle-btn-comprar" : "detalle-btn-disabled"}
+          >
             🛒 Agregar al carrito
           </button>
         </div>
