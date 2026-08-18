@@ -1,10 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import productos from "./data/productos";
 import Hero from "./components/Hero";
-import Estadisticas from "./components/Estadisticas";
-import Marcas from "./components/Marcas";
 import Contacto from "./components/Contacto";
 import Catalogo from "./Pages/Catalogo";
 import Carrito from "./Pages/Carrito";
@@ -12,13 +9,15 @@ import DetalleProducto from "./Pages/DetalleProducto";
 import Checkout from "./Pages/Checkout";
 import Login from "./Pages/Login";
 import PanelAdmin from "./Pages/PanelAdmin";
+import ProductosDestacados from "./components/ProductosDestacados";
+import Beneficios from "./components/Beneficios";
 
 function Home() {
   return (
     <div>
       <Hero />
-      <Estadisticas />
-      <Marcas />
+      <ProductosDestacados />
+      <Beneficios />
       <Contacto />
     </div>
   );
